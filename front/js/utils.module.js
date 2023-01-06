@@ -7,9 +7,9 @@ const getData = async (url) => {
     } else {
       throw new Error("ca s'est mal passé")
     }
-  } catch (err) {
+  } catch (error) {
     console.log('error getData')
-    return err
+    return error
   }
 }
 

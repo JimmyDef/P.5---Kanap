@@ -16,12 +16,15 @@ getData('http://127.0.0.1:3000/api/products')
   .then((value) => {
     console.log(value)
     value.map((kanap, idx) => {
-      console.log(`mon kanapé ${idx}`, kanap)
+      console.log(`mon canapé ${idx}`, kanap)
       displayKanap(kanap)
     })
   })
 
   .catch(function (err) {
     console.log('erreur', err)
-    // Une erreur est survenue, veuillez réessayer ulterieurement.
+    let items = document.getElementById('items')
+    items.innerHTML =
+      'Une erreur est survenue, veuillez réessayer ulterieurement.'
+    items.style.fontSize = 'x-large'
   })

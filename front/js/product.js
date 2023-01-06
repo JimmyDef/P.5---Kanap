@@ -14,14 +14,23 @@ getData(`http://127.0.0.1:3000/api/products/${productId}`)
     document.getElementById('price').innerText = kanap.price
     document.getElementById('description').innerText = kanap.description
     let targetImg = document.querySelector('.item__img')
-    console.log(targetImg)
     let image = document.createElement('img')
     image.src = kanap.imageUrl
     console.log('url image', kanap.imageUrl)
     targetImg.appendChild(image)
+
+    for (let i of kanap.colors) {
+      let targetSelect = document.getElementById('colors')
+      let option = document.createElement('option')
+      targetSelect.appendChild(option).innerText = i
+      option.setAttribute('value', `i`)
+    }
   })
 
   .catch(function (err) {
-    console.log('erreur', err)
-    // Une erreur est survenue, veuillez réessayer ulterieurement.
+    console.log('erreur GRAVE', err)
+    let items = document.getElementById('test')
+    items.innerHTML =
+      'Une erreur est survenue, veuillez réessayer ulterieurement.'
+    items.style.fontSize = 'x-large'
   })
